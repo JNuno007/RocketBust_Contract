@@ -1,3 +1,4 @@
+import currency
 random.seed()
 # Hash for transfer movements
 # This should be deleted and use currency lib
@@ -92,6 +93,7 @@ def multi_player_bet(amount: float, bet: float):
     betters['bets'].append(
         {'id': ctx.caller, 'amount': int(amount), 'bet': int(bet), 'multiplication_factor': factor.get()})
 
+    betters['bets'] = betters['bets']
     # Should I return something for the success?
     return "Thank you for playing, good luck!"
 
@@ -122,6 +124,7 @@ def start_new_game():
     game_phase.set("BETTING")
     multiplayer_gameID.set(multiplayer_gameID.get() + 1)
     betters['bets'] = []
+    betters['bets'] = betters['bets']
 
 
 # Generates a random number
@@ -141,6 +144,7 @@ def generate_result():
 def add_to_list():
     betters['bets'].append(
         {'id': ctx.caller, 'amount': 0, 'bet': 0, 'multiplication_factor': factor.get()})
+    betters['bets'] = betters['bets']
 
     return betters['bets']
 
